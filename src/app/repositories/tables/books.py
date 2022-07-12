@@ -9,5 +9,5 @@ books_table = Table(
     Column("id", Integer, primary_key=True),
     Column("title", String, nullable=False),
     Column("description", String, nullable=False),
-    Column("user_id", ForeignKey(users_table)),
+    Column("user_id", ForeignKey(users_table.c.id)),
 )

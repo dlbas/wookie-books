@@ -12,5 +12,6 @@ create table books
 (
     id          integer primary key,
     title       varchar not null,
-    description varchar not null
+    description varchar not null,
+    user_id     integer references users (id)
 );
