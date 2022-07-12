@@ -2,6 +2,7 @@ from fastapi import Depends
 from fastapi.security import OAuth2PasswordBearer
 
 from app.api.config import Settings
+from app.api.database import database_connection
 from app.models.user import User
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token/")

@@ -5,8 +5,8 @@ from fastapi import Depends, HTTPException, status
 from jose import jwt
 from passlib.context import CryptContext
 
-from app.api.database import database_connection
-from app.api.deps import token_expires_in_minutes, token_secret_key
+from app.api.deps import (database_connection, token_expires_in_minutes,
+                          token_secret_key)
 from app.repositories.users import get_user_by_login, update_user_password
 from app.schemas.auth import LoginRequest, LoginResponse
 
