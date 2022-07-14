@@ -15,7 +15,7 @@ fastapi = "^0.78.0"
 uvicorn = "^0.18.2"
 SQLAlchemy = "^1.4.39"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
-databases = {extras = ["aiosqlite"], version = "^0.6.0"}
+databases = {extras = ["aiosqlite", "asyncpg"], version = "^0.6.0"}
 python-jose = {extras = ["cryptograpy"], version = "^3.3.0"}
 python-multipart = "^0.0.5"
 
@@ -26,6 +26,8 @@ isort = "^5.10.1"
 mypy = "^0.961"
 pytest-mock = "^3.8.2"
 requests = "^2.28.1"
+anyio = "^3.6.1"
+trio = "^0.21.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

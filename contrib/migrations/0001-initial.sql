@@ -1,6 +1,6 @@
 create table users
 (
-    id        integer primary key,
+    id        serial primary key,
     login     varchar not null,
     password  varchar null,
     pseudonym varchar not null,
@@ -10,7 +10,7 @@ create table users
 
 create table books
 (
-    id              integer primary key,
+    id              serial primary key,
     title           varchar                  not null,
     description     varchar                  not null,
     cover_image_url varchar                  not null,
