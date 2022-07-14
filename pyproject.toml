@@ -4,6 +4,11 @@ version = "0.1.0"
 description = "A bookstore rest API"
 authors = ["Daniel Baskal <daniel.baskal@gmail.com>"]
 
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.78.0"
@@ -19,6 +24,8 @@ pytest = "^7.1.2"
 black = "^22.6.0"
 isort = "^5.10.1"
 mypy = "^0.961"
+pytest-mock = "^3.8.2"
+requests = "^2.28.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
