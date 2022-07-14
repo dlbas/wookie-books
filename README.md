@@ -6,7 +6,14 @@ A bookstore REST API for the Wookies from Kashyyyk.
 
 Just run
 ```docker-compose up``` at the root of the repository to boot everything up. Then head to
-`http://localhost:8000/docs/` to see the OpenAPI interactive docs.
+http://localhost:8000/docs/ to see the OpenAPI interactive docs.
+
+![OpenAPI interactive docs view](assets/interactive_docs.png?raw=true)
+
+There will be some demo users: `luke`, `anakin` and `dartvaider`. Each user has no password set. The password will
+be set the first time you log in with that username.
+
+![Auth view](assets/authorize.png?raw=true)
 
 For production usage you will probably need to tweak some environment variables.
 
