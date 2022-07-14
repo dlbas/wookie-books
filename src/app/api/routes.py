@@ -1,3 +1,4 @@
+import fastapi
 from fastapi.routing import APIRoute
 
 from app.schemas.auth import LoginResponse
@@ -39,3 +40,5 @@ routes = [
         tags=["login"],
     ),
 ]
+
+router = fastapi.APIRouter(routes=routes)

@@ -2,9 +2,10 @@ from fastapi import FastAPI
 
 from app.api.config import Settings
 from app.api.database import database_container
-from app.api.routes import routes
+from app.api.routes import router
 
-app = FastAPI(routes=routes)
+app = FastAPI()
+app.include_router(router)
 
 
 @app.on_event("startup")
