@@ -5,6 +5,6 @@ EXPOSE 8000
 
 RUN pip install poetry && poetry config virtualenvs.create false
 COPY poetry.lock pyproject.toml src ./
-RUN poetry install
+RUN poetry install --no-dev
 
-CMD ["uvicorn", "--host", "0.0.0.0", "app.main:app"]
+CMD ["gunicorn", "app.main:app", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]

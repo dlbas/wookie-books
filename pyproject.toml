@@ -12,12 +12,14 @@ pythonpath = [
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.78.0"
-uvicorn = "^0.18.2"
+uvicorn = {extras = ["standard"], version = "^0.18.2"}
 SQLAlchemy = "^1.4.39"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 databases = {extras = ["aiosqlite", "asyncpg"], version = "^0.6.0"}
 python-jose = {extras = ["cryptograpy"], version = "^3.3.0"}
 python-multipart = "^0.0.5"
+gunicorn = "^20.1.0"
+certifi = "^2022.6.15"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
