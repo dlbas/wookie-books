@@ -1,5 +1,5 @@
 from databases.core import Connection
-from fastapi import Depends, HTTPException, Path, status
+from fastapi import Depends, HTTPException, Path, status, Response
 
 from app.api.database import database_connection
 from app.models.book import Book
@@ -46,6 +46,7 @@ async def create_book(
             cover_image_url=book.cover_image_url,
             price=book.price,
         )
+    return Response(status_code=status.HTTP_201_CREATED)
 
 
 async def update_book(
@@ -60,6 +61,7 @@ async def update_book(
         if not book:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         await update_book_db(connection, book_id=book.id, values=updates)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 async def delete_book(
@@ -72,3 +74,4 @@ async def delete_book(
         if not book:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         await unpublish_book_db(connection, book_id=book.id)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

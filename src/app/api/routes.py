@@ -27,9 +27,11 @@ routes = [
         response_model=BookForGet,
     ),
     APIRoute("/books/", methods=["POST"], endpoint=create_book, tags=["books"]),
-    APIRoute("/books/{book_id}", methods=["PUT"], endpoint=update_book, tags=["books"]),
     APIRoute(
-        "/books/{book_id}", methods=["DELETE"], endpoint=delete_book, tags=["books"]
+        "/books/{book_id}/", methods=["PUT"], endpoint=update_book, tags=["books"]
+    ),
+    APIRoute(
+        "/books/{book_id}/", methods=["DELETE"], endpoint=delete_book, tags=["books"]
     ),
     # users routes
     APIRoute(
