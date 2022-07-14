@@ -1,7 +1,18 @@
-from app.main import app
-from app.api.database import database_connection
+from fastapi import status
 
 
-def test_list_books__allows_listing_without_auth(test_client, test_connection, mocker):
-    app.dependency_overrides[database_connection] = lambda: mocker.Mock()
-    response = test_client.request('GET', '/books/')
+def test_list_books__allows_listing_without_auth(test_client, test_connection):
+    test_connection.fetch_all.return_value = []
+    response = test_client.get("/books/")
+
+    assert response.status_code == status.HTTP_200_OK
+    assert test_connection.fetch_all.called
+    assert response.json() == []
+
+
+def test_list_books__allows_detail_without_auth(test_client, test_connection):
+    test_connection.fetch_one.return_value = None
+    response = test_client.get("/books/1/")
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+    assert test_connection.fetch_one.called
