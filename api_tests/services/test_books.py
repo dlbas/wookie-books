@@ -34,6 +34,7 @@ def test_create_book__unauthorized_user_cannot_create_book(
     )
 
     assert response.status_code == status.HTTP_401_UNAUTHORIZED
+    assert not test_connection.fetch_one.called
 
 
 def test_create_book__disabled_user_cannot_create_book(
