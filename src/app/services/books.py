@@ -1,8 +1,7 @@
 from databases.core import Connection
-from fastapi import Depends, HTTPException, Path, status, Response
+from fastapi import Depends, HTTPException, Path, Response, status
 
 from app.api.database import database_connection
-from app.models.book import Book
 from app.models.user import User
 from app.repositories.books import create_book as create_book_db
 from app.repositories.books import get_book_by_id as get_book_by_id_db

@@ -3,7 +3,7 @@ from decimal import Decimal
 from typing import Any
 
 from databases.core import Connection
-from sqlalchemy import delete, insert, select, update
+from sqlalchemy import insert, select, update
 
 from app.models.book import Book
 from app.repositories.tables.books import books_table
