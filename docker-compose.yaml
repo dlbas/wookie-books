@@ -26,7 +26,9 @@ services:
       dockerfile: Dockerfile
       context: .
     environment:
-      DATABASE_URL: "postgresql+asyncpg://postgres:changeme@postgres/app"
+      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://postgres:changeme@postgres/app}
+      TOKEN_SECRET_KEY: ${TOKEN_SECRET_KEY:-change me}
+      TOKEN_EXPIRES_IN_MINUTES: ${TOKEN_EXPIRES_IN_MINUTES:-60}
     ports:
       - "8000:8000"
     networks:
